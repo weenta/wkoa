@@ -1,14 +1,25 @@
-const Koa = require('koa')
-const Router = require('koa-router')
+const Wkoa = require('./core')
 
-const app = new Koa()
-const router = new Router()
+const app = new Wkoa()
 
-router.get('/',ctx=>{
-    ctx.type = 'html'
-    ctx.body = '<h1>hello wkoa</h1>'
-})
-app.use(router.routes())
+// use koa-router
+app.setRouters()
+
+// app.setService()
+
 app.listen(3000,()=>{
-    console.log('server runnint at localhost:3000')
+    console.log('server running at localhost:3000')
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
