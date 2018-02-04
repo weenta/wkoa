@@ -1,5 +1,6 @@
 module.exports = {
-    async formatDate(val){
+    // 格式化日期 yy-mm-dd
+    formatDate(val){
         const dates = val || Date.now()
         const date = new Date(dates)
         const y = date.getFullYear()
