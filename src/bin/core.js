@@ -24,8 +24,8 @@ class Wkoa extends Koa {
                 const URL = key.split(' ')[1]
                 const CB = routers[key]
 
-                this.router[METHOD](URL,ctx=>{
-                    CB(ctx,this.service)
+                this.router[METHOD](URL,(ctx,next)=>{
+                    CB(ctx,next,this.service)
                 })
             })
             return app.router.routes()
@@ -35,8 +35,8 @@ class Wkoa extends Koa {
 
     setService(){
         const services = this.loader.loadService()
-        services.forEach(svc=>{
-            this.service[svc.name] = svc.module
+        services.forEach(sev=>{
+            this.service[sev.name] = sev.module
         })
     }
 
